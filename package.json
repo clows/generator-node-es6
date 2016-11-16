@@ -1,0 +1,30 @@
+{
+  "name": "generator-node-module",
+  "version": "0.0.1",
+  "description": "An opinionated node module generator for yeoman",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nover/generator-node-module.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "node",
+    "nodejs",
+    "module",
+    "library",
+    "lib"
+  ],
+  "author": "Nicklas Laine Overgaard <nicklas@skarp.dk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nover/generator-node-module/issues"
+  },
+  "homepage": "https://github.com/nover/generator-node-module#readme",
+  "dependencies": {
+    "yeoman-generator": "^0.24.1"
+  }
+}

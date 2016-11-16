@@ -1,18 +1,53 @@
 var generators = require('yeoman-generator');
 
 module.exports = generators.Base.extend({
-  // The name `constructor` is important here
-  constructor: function () {
-    // Calling the super constructor is important so our generator is correctly set up
-    generators.Base.apply(this, arguments);
+  prompting: function () {
+    return this.prompt([{
+      type: 'input',
+      name: 'name',
+      message: 'Module name',
+      default: this.appname // Default to current folder name
+    }, {
+      type: 'input',
+      name: 'author',
+      message: 'Author name',
+      default: '' // TODO read from yo rc file
+    }, {
+      type: 'confirm',
+      name: 'tests',
+      message: 'Would you like to add a test suite?',
+      default: true
+    }, {
+      type: 'confirm',
+      name: 'install',
+      message: 'Install packages?',
+      default: true
+    }]).then(function (answers) {
+      this.props = answers;
 
-    // Next, add your custom code
-    this.option('coffee'); // This method adds support for a `--coffee` flag
+      this.log('app name', answers.name);
+      this.log('author', answers.author);
+      this.log('test suite', answers.tests);
+      this.log('install', answers.tests);
+    }.bind(this));
   },
-  method1: function () {
-    console.log('method 1 just ran');
-  },
-  method2: function () {
-    console.log('method 2 just ran');
+  writing: {
+    config: function () {
+      this.fs.copyTpl(
+        this.templatePath('config/_editorconfig'),
+        this.destinationPath('.editorconfig')
+      );
+      this.fs.copyTpl(
+        this.templatePath('config/_package.json'),
+        this.destinationPath('package.json'), {
+          name: this.props.name,
+          author: this.props.author
+        }
+      )
+    },
+
+    files: function () {
+      this.log('library files writing')
+    }
   }
 });

@@ -24,6 +24,9 @@
     "url": "https://github.com/nover/generator-node-module/issues"
   },
   "homepage": "https://github.com/nover/generator-node-module#readme",
+  "files": [
+    "generators/app"
+  ],
   "dependencies": {
     "yeoman-generator": "^0.24.1"
   }

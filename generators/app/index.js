@@ -13,10 +13,10 @@ module.exports = generators.Base.extend({
       message: 'Author name',
       default: '' // TODO read from yo rc file
     }, {
-      type: 'confirm',
-      name: 'tests',
-      message: 'Would you like to add a test suite?',
-      default: true
+      type: 'input',
+      name: 'version',
+      message: 'Version of your library?',
+      default: '1.0.0'
     }, {
       type: 'confirm',
       name: 'install',
@@ -27,35 +27,34 @@ module.exports = generators.Base.extend({
 
       this.log('app name', answers.name);
       this.log('author', answers.author);
-      this.log('test suite', answers.tests);
-      this.log('install', answers.tests);
+      this.log('version', answers.version);
+      this.log('install', answers.install);
     }.bind(this));
   },
-  writing: {
-    config: function () {
-      this.fs.copyTpl(
-        this.templatePath('config/_editorconfig'),
-        this.destinationPath('.editorconfig')
-      );
-      this.fs.copyTpl(
-        this.templatePath('config/_package.json'),
-        this.destinationPath('package.json'), {
-          name: this.props.name,
-          author: this.props.author
-        }
-      );
-      this.fs.copyTpl(
-        this.templatePath('config/_eslintrc'),
-        this.destinationPath('.eslintrc')
-      );
-      this.fs.copyTpl(
-        this.templatePath('config/_yarn.lock'),
-        this.destinationPath('yarn.lock')
-      );
-    },
+  configuring: function () {
+    this.fs.copyTpl(
+      this.templatePath('config/_editorconfig'),
+      this.destinationPath('.editorconfig')
+    );
+    this.fs.copyTpl(
+      this.templatePath('config/_package.json'),
+      this.destinationPath('package.json'), {
+        name: this.props.name,
+        version: this.props.version,
+        author: this.props.author
+      }
+    );
+    this.fs.copyTpl(
+      this.templatePath('config/_eslintrc'),
+      this.destinationPath('.eslintrc')
+    );
+    this.fs.copyTpl(
+      this.templatePath('config/_yarn.lock'),
+      this.destinationPath('yarn.lock')
+    );
+  },
+  writing: function () {
+    this.log('library files writing')
 
-    files: function () {
-      this.log('library files writing')
-    }
   }
 });

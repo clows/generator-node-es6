@@ -3,10 +3,10 @@
 A node module generator for yeoman. Opinionated in the sense that it creates
 
  - ES6 node modules, no transpiling via babel
- - Uses yarn for dependency management
- - Lab for testing
+ - Uses [yarn](https://yarnpkg.com/) for dependency management
+ - [Lab](https://github.com/hapijs/lab) for testing
  - eslint with airbnb rules
- - Installs a pre-commit hook to run `lint` and `test`
+ - installs [pre-commit hook](https://www.npmjs.com/package/pre-commit) to ensure lint at test works before a commit
  
 
 # TODO

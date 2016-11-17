@@ -43,7 +43,15 @@ module.exports = generators.Base.extend({
           name: this.props.name,
           author: this.props.author
         }
-      )
+      );
+      this.fs.copyTpl(
+        this.templatePath('config/_eslintrc'),
+        this.destinationPath('.eslintrc')
+      );
+      this.fs.copyTpl(
+        this.templatePath('config/_yarn.lock'),
+        this.destinationPath('yarn.lock')
+      );
     },
 
     files: function () {

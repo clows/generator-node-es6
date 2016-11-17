@@ -2,5 +2,20 @@
   "name": "<%= name %>",
   "version": "0.0.1",
   "author": "<%= author %>",
-  "license": "MIT"
+  "main": "lib/index.js",
+  "scripts" :{
+    "lint": "./node_modules/.bin/eslint lib test",
+    "test": "./node_modules/.bin/lab"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.10.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "lab": "^11.2.1",
+    "pre-commit": "^1.1.3"
+  }
 }

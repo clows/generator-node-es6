@@ -54,7 +54,22 @@ module.exports = generators.Base.extend({
     );
   },
   writing: function () {
-    this.log('library files writing')
+    this.fs.copyTpl(
+      this.templatePath('lib/_index.js'),
+      this.destinationPath('lib/index.js')
+    );
 
+    this.fs.copyTpl(
+      this.templatePath('test/_index.spec.js'),
+      this.destinationPath('test/index.spec.js')
+    );
+  },
+  install: function () {
+    if (!this.props.install) {
+      this.log(chalk.red('  skipping install of deps'));
+      return;
+    }
+
+    this.spawnCommand('yarn', ['install']);
   }
 });

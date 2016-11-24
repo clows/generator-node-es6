@@ -1,5 +1,5 @@
 {
-  "name": "generator-node-module",
+  "name": "generator-node-es6",
   "version": "0.0.1",
   "description": "An opinionated node module generator for yeoman",
   "scripts": {
@@ -20,9 +20,9 @@
   "author": "Nicklas Laine Overgaard <nicklas@skarp.dk>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nover/generator-node-module/issues"
+    "url": "https://github.com/nover/generator-node-es6/issues"
   },
-  "homepage": "https://github.com/nover/generator-node-module#readme",
+  "homepage": "https://github.com/nover/generator-node-es6#readme",
   "files": [
     "generators/app"
   ],

@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "airbnb"
+  ],
+   "rules": {
+     "arrow-body-style": 0,
+     "import/newline-after-import": 0
+   }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "author": "<%= author %>",
+  "main": "lib/index.js",
+  "scripts" :{
+    "lint": "./node_modules/.bin/eslint lib test",
+    "test": "./node_modules/.bin/lab"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "code": "^4.0.0",
+    "eslint": "^3.10.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.1.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.6.0",
+    "lab": "^11.2.1",
+    "pre-commit": "^1.1.3"
+  }
+}

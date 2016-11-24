@@ -19,13 +19,24 @@ describe(' node-es6:app', () => {
   });
 
   it(' creates configuration files', () => {
-    'use strict';
     assert.file([
       '.editorconfig',
       '.eslintignore',
       '.eslintrc',
       'package.json',
       'yarn.lock'
+    ]);
+  });
+
+  it(' creates the main library file', () => {
+    assert.file([
+      'lib/index.js'
+    ]);
+  });
+
+  it(' creates test suite', () => {
+    assert.file([
+      'test/index.spec.js'
     ]);
   });
 });

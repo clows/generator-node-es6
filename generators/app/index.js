@@ -49,6 +49,10 @@ module.exports = generators.Base.extend({
       this.destinationPath('.eslintrc')
     );
     this.fs.copyTpl(
+      this.templatePath('config/_eslintignore'),
+      this.destinationPath('.eslintignore')
+    );
+    this.fs.copyTpl(
       this.templatePath('config/_yarn.lock'),
       this.destinationPath('yarn.lock')
     );

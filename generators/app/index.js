@@ -19,7 +19,7 @@ module.exports = generators.Base.extend({
       message: 'Version of your library?',
       default: '1.0.0'
     }, {
-      type: 'input',
+      type: 'confirm',
       name: 'gitignore',
       message: 'Add .gitignore?',
       default: true

@@ -3,6 +3,9 @@
   "version": "<%= version %>",
   "author": "<%= author %>",
   "main": "lib/index.js",
+  "engines": {
+    "node": ">=6.9.0"
+  },
   "scripts" :{
     "lint": "./node_modules/.bin/eslint lib test",
     "test": "./node_modules/.bin/lab"

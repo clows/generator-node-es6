@@ -74,7 +74,12 @@ module.exports = generators.Base.extend({
       this.log(chalk.red('  skipping install of deps'));
       return;
     }
+    var _this = this;
+    this.spawnCommand('yarn', ['install']).on('close', function yarnClose() {
+      var isWin = /^win/.test(process.platform);
+      if(isWin) return;
 
-    this.spawnCommand('yarn', ['install']);
+      _this.spawnCommand('chmod', ['+x', '.git/hooks/pre-commit']);
+    });
   }
 });

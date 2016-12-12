@@ -1,6 +1,6 @@
 {
   "name": "generator-node-es6",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An opinionated node module generator for yeoman",
   "scripts": {
     "test": "./node_modules/.bin/mocha"

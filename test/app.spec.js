@@ -13,7 +13,8 @@ describe(' node-es6:app', () => {
         name: 'unit-test',
         author: 'mr. lab',
         version: '4.2.0',
-        install: false
+        install: false,
+        gitignore: true
       })
       .toPromise();
   });
@@ -24,7 +25,8 @@ describe(' node-es6:app', () => {
       '.eslintignore',
       '.eslintrc',
       'package.json',
-      'yarn.lock'
+      'yarn.lock',
+      '.gitignore'
     ]);
   });
 

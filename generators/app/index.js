@@ -19,6 +19,11 @@ module.exports = generators.Base.extend({
       message: 'Version of your library?',
       default: '1.0.0'
     }, {
+      type: 'input',
+      name: 'gitignore',
+      message: 'Add .gitignore?',
+      default: true
+    }, {
       type: 'confirm',
       name: 'install',
       message: 'Install packages?',
@@ -29,6 +34,7 @@ module.exports = generators.Base.extend({
       this.log('app name', answers.name);
       this.log('author', answers.author);
       this.log('version', answers.version);
+      this.log('gitignore', answers.gitignore);
       this.log('install', answers.install);
     }.bind(this));
   },
@@ -57,6 +63,12 @@ module.exports = generators.Base.extend({
       this.templatePath('config/_yarn.lock'),
       this.destinationPath('yarn.lock')
     );
+    if(this.props.gitignore) {
+      this.fs.copyTpl(
+        this.templatePath('config/_gitignore'),
+        this.destinationPath('.gitignore')
+      );
+    }
   },
   writing: function () {
     this.fs.copyTpl(
@@ -77,7 +89,7 @@ module.exports = generators.Base.extend({
     var _this = this;
     this.spawnCommand('yarn', ['install']).on('close', function yarnClose() {
       var isWin = /^win/.test(process.platform);
-      if(isWin) return;
+      if (isWin) return;
 
       _this.spawnCommand('chmod', ['+x', '.git/hooks/pre-commit']);
     });

@@ -36,9 +36,15 @@ describe(' node-es6:app', () => {
     ]);
   });
 
-  it(' creates test suite', () => {
+  it(' creates unit test suite', () => {
     assert.file([
-      'test/index.spec.js'
+      'test/unit/index.spec.js'
+    ]);
+  });
+
+  it(' creates functional test suite', () => {
+    assert.file([
+      'test/functional/index.spec.js'
     ]);
   });
 });

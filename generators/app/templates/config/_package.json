@@ -7,8 +7,10 @@
     "node": ">=6.9.0"
   },
   "scripts" :{
-    "lint": "./node_modules/.bin/eslint lib test",
-    "test": "./node_modules/.bin/lab"
+    "lint": "eslint lib test",
+    "test": "yarn run test:unit",
+    "test:unit": "lab test/unit",
+    "test:functional": "lab test/functional"
   },
   "pre-commit": [
     "lint",

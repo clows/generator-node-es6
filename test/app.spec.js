@@ -36,9 +36,21 @@ describe(' node-es6:app', () => {
     ]);
   });
 
-  it(' creates test suite', () => {
+  it(' creates test eslint config', () => {
     assert.file([
-      'test/index.spec.js'
+      'test/.eslintrc'
+    ]);
+  });
+
+  it(' creates unit test suite', () => {
+    assert.file([
+      'test/unit/index.spec.js'
+    ]);
+  });
+
+  it(' creates functional test suite', () => {
+    assert.file([
+      'test/functional/index.spec.js'
     ]);
   });
 });

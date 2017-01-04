@@ -77,8 +77,18 @@ module.exports = generators.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('test/_index.spec.js'),
-      this.destinationPath('test/index.spec.js')
+      this.templatePath('test/_eslintrc'),
+      this.destinationPath('test/.eslintrc')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('test/functional/_index.spec.js'),
+      this.destinationPath('test/functional/index.spec.js')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('test/unit/_index.spec.js'),
+      this.destinationPath('test/unit/index.spec.js')
     );
   },
   install: function () {

@@ -4,13 +4,15 @@ A node module generator for yeoman. Opinionated in the sense that it creates
 
  - ES6 node modules, no transpiling via babel
  - Uses [yarn](https://yarnpkg.com/) for dependency management
- - Uses [Lab](https://github.com/hapijs/lab) for testing
+ - Uses [Mocha](http://mochajs.org/) for testing
+ - Uses [Unexpected](http://unexpected.js.org/) for assertions
+ - Uses [TestDouble](https://github.com/testdouble/testdouble.js) for mocking
  - eslint with airbnb rules ( with some minor tweaks )
  - installs a [pre-commit hook](https://www.npmjs.com/package/pre-commit) to ensure lint and tests are executed before a commit
 
 ## Install it
 
-Install the genrator with npm:
+Install the generator with npm:
 ```
 $ npm install -g yo generator-node-es6
 ```
@@ -40,5 +42,3 @@ Answer the questions and celebrate that a new node module is generated for you.
  - submodule generator for hapi-plugin
  - submodule generator for hapi-plugin test
  - submodule generator for hapi api
- - perhaps support for both Lab and Mocha tests?
-

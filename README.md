@@ -12,6 +12,8 @@ A node module generator for yeoman. Opinionated in the sense that it creates
 
 ## Install it
 
+First ensure that you have [yarn](https://yarnpkg.com/en/docs/install) installed, as it is needed by the generator.
+
 Install the generator with npm:
 ```
 $ npm install -g yo generator-node-es6
